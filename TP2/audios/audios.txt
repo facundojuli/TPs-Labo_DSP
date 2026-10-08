@@ -1,0 +1,14 @@
+## Los audios
+
+Tres archivos tuyos, y los tres tipos son obligatorios porque la comparación entre familias
+solo es informativa si el contenido las hace trabajar distinto:
+
+| Tipo | Qué buscar | Ejemplo |
+|---|---|---|
+| **Música tonal** | armónicos sostenidos | una guitarra, un piano, un coro |
+| **Voz** | lo tonal y lo percusivo mezclados | vos, leyendo un párrafo |
+| **Transitorio percusivo** | ataques secos, silencio entre golpes | palmas, llaves, percusión |
+
+Requisitos: WAV mono (o convertible), entre 5 y 15 segundos, sin clipping de origen. Material
+libre sirve (Freesound, Wikimedia Commons); grabado por vos, mejor. Nombralos en la celda de
+carga y guardalos en `audios/` junto a esta notebook.
