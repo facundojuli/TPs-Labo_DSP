@@ -195,3 +195,9 @@ crea el archivo de memoria de ia separado por partes y pone lo que te fui pregun
 ---
 
 ## Extensiones
+
+
+## Referencias 
+
+## Cita de autores
+Para los audios recite el poema 20 de pablo neruda de Veinte poemas de amor y una canción desesperada (1924).  y la cancion she's electric de oasis, interpretada en pinao por mi, citame esas dos cossas asi lo pego
