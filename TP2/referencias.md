@@ -12,6 +12,14 @@ Oasis. (1995). «She's Electric» [Canción escrita por Noel Gallagher]. En *(Wh
 
 **Grabación utilizada:** Interpretación instrumental propia en piano de «She's Electric», grabada específicamente para el TP2 de Procesamiento de Señales (2026).
 
+## Audio percusivo (aplausos)
+
+**Grabación utilizada:** Aplausos, grabación propia realizada específicamente para el TP2 de Procesamiento de Señales (2026).
+
 ## Papers
 
-Advances in Computer Science Research, vol. 86, CECS 2018, Atlantis Press, págs. 481–485.
+Wang, X. y Dai, Y. (2018). «An Improved Denoising Method Based on Stationary Wavelet Transform». En *Proceedings of the International Symposium on Communication Engineering & Computer Science (CECS 2018)*, Advances in Computer Science Research, vol. 86, págs. 481–485. Atlantis Press. https://www.atlantis-press.com/proceedings/cecs-18/25902510
+
+## Otras fuentes
+
+Wikipedia. «Frecuencia de voz». En *Wikipedia, la enciclopedia libre*. https://es.wikipedia.org/wiki/Frecuencia_de_voz (consultado en octubre de 2026).
