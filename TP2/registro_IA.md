@@ -180,24 +180,126 @@ crea el archivo de memoria de ia separado por partes y pone lo que te fui pregun
 
 ## Parte 2 — La curva tasa–distorsión
 
+**16.**
+
+```text
+lee el repo de vuelta. mi compañero trabajó en la parte 2 y 3. primera tarea: agregá pies de foto en los graficos que no lo tienen basandote en el analisis de mi compañero, y quiero que agregues en la curva tasa distorsion puntos por encima de 50% para ver la rodilla que intuyo esta mas arriba
+```
+
 ---
 
 ## Parte 3 — Elegí, y defendela
+
+**17.**
+
+```text
+en la escucha de los audios percusivos para mantener transparencia, pude escuchar como un ruido que es como unos "puntitos" de ruido, como si dejaran caer un grano de arena a la vez en el microfono. Similar a lo escuchado en radio am en mi experiencia. Como es el nombre del fenomeno? o como lo explico claramente.
+```
+
+**18.**
+
+```text
+quiero que agregues en la parte 3 (codigo), al resto de las familias. lo que tenemos ahora es una eleccion basada en el snr. quiero considerar que puede ser que el snr diga una cosa, pero al escuchar, otra familia sea mas transparente. Mismas fracciones que las y analizadas para cada caso, pero todas las familias. Si es posible, agregá prints para no perderse entre todos los audios del notebook, separando por ejemplo: Titulo: TONAL subtitulo: transparencia subsubtitulo familia x
+```
+
+**19.**
+
+```text
+no hay problema porque yo voy a entregar con la kernel restarteada y el profesor hace runall
+```
+
+**20.**
+
+```text
+okay, igual la entrega es un zip asi que nos manejamos borrando outputs y el dia de la entrega armo el zip
+```
+
+**21.**
+
+```text
+puedo borrar las celdas viejas de la parte 3 donde hacia audios? si ahora en la que hiciste vos se hacen todos los audios de vuelta y mas prolijamente ordenados
+```
+
+**22.**
+
+```text
+ya lo borré. estoy escuchando y encontré algo: en el audio de voz, la transparencia gana bior, pero en maxima compresion gana DCT. te parece algo esperable? como justificarias? se me ocurre que mantiene la fundamental de la voz y algunos armonicos
+```
+
+**23.**
+
+```text
+si, pasame la celda de los espectrogramas
+```
+
+**24.** (con una captura de los espectrogramas de voz: original, bior4.4 y DCT al 7 %)
+
+```text
+Se ve que la DCT tiene un piso de ruido blanco, es lo que expliqué en la celda de analisis. que te parece el resto? los baches negros en bior4.4 sostienen el analisis?
+```
 
 ---
 
 ## Parte 4 — El test de escucha
 
+
+
+
+
 ---
 
 ## Parte 5 — El mismo acto: denoising
+
+**27.**
+
+```text
+me sirve la tabla pero me acaba de escribir el profesor: hay que saltear la parte 4. para la parte 5, lee el notebook de la clase 9 para entender el pipeline. Ayudame a adaptar ese código a este audio
+```
+
+**28.**
+
+```text
+uh, se va el ruido pero no es nada transparente. es lo logico no?
+```
+
+**29.** (con una captura del zoom en los 200 ms más débiles del audio tonal)
+
+```text
+por que la original se va a 0 por tramos?
+```
+
+**30.**
+
+```text
+dame un checklist de temas a analizar en la parte 5. por ejemplo: snr de umbral blando no presenta mejoras significativas, mejora umbral duro, coeficientes de f>3kHz mueren todos, conserva frecuencias de energía, etc. inclui todos los temas a cubrir para contestar las preguntas
+```
 
 ---
 
 ## Extensiones
 
+**31.**
+
+```text
+explicame como funciona la SWT
+```
+
+**32.** (con el paper de Wang y Dai, 2018, adjunto)
+
+```text
+@"C:\Users\glouz\Downloads\25902510.pdf"
+Te paso este pdf porque lo use como bibliografia para el analisis de la parte 5. Ayudame a completar el código de la celda.
+```
+
+**33.**
+
+```text
+actualizá el registro_IA con las preguntas de las partes 2 a 5
+```
+
 
 ## Referencias 
 
 ## Cita de autores
-Para los audios recite el poema 20 de pablo neruda de Veinte poemas de amor y una canción desesperada (1924).  y la cancion she's electric de oasis, interpretada en pinao por mi, citame esas dos cossas asi lo pego
+Para los audios recite el poema 20 de pablo neruda de Veinte poemas de amor y una canción desesperada (1924)  y la cancion she's electric de oasis, interpretada en pinao por mi, citame esas dos cosas asi lo pego. 
+

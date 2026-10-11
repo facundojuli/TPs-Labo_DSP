@@ -11,3 +11,7 @@ Neruda, P. (1924). «Poema 20». En *Veinte poemas de amor y una canción desesp
 Oasis. (1995). «She's Electric» [Canción escrita por Noel Gallagher]. En *(What's the Story) Morning Glory?*. Creation Records.
 
 **Grabación utilizada:** Interpretación instrumental propia en piano de «She's Electric», grabada específicamente para el TP2 de Procesamiento de Señales (2026).
+
+## Papers
+
+Advances in Computer Science Research, vol. 86, CECS 2018, Atlantis Press, págs. 481–485.
