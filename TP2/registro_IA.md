@@ -331,7 +331,7 @@ le podemos agregar un punto a la curva de la local? en 15%
 **21.** *ChatGPT*
 
 ````text
-ok. lo de la dct parece esperable pq no localiza en el tiempo.  te consulto esta bien mi raoznamiento onda d q al analizar mas tiempo como q la energia del golpe se distribuye en tiempos donde no hay señal entonces como q se promedia todo y la amplitud promedio es menor y eso t hace valorar una peor snr adaptadaa ahi? no se, cual seria la explic pasame asi la pongo en el .md. pasame una celda asi copio y pego
+ok. lo de la dct parece esperable pq no localiza en el tiempo.  te consulto esta bien mi raoznamiento onda d q al analizar mas tiempo como q la energia del golpe se distribuye en tiempos donde no hay señal entonces como q se promedia todo y la amplitud promedio es menor y eso t hace valorar una peor snr adaptadaa ahi? no se, cual seria la explic pasame asi la pongo en el .md.
 ````
 
 **22.** *ChatGPT*
@@ -608,7 +608,7 @@ bueno la aleeccion de esto fue bior4.4 para 50 y 10 % respectivamente, er ala qu
 **45.** *ChatGPT*
 
 ````text
-bueno buenisimo ahora vamos con la percucion, repitamos el analisis con bior4.4, haceme una celda que haga la original y estas dos pero que en cada una pueda parametrizar su porcentaje.
+bueno buenisimo ahora vamos con la percusion, repitamos el analisis con bior4.4, haceme una celda que haga la original y estas dos pero que en cada una pueda parametrizar su porcentaje.
 ````
 
 **46.** *ChatGPT*
@@ -786,15 +786,6 @@ haceme un compilado de todos los propmts que te pedi para este tp
 actualizá el registro_IA con las preguntas de las partes 2 a 5
 ```
 
-
-### Referencias de los audios
-
-**64.** *Claude — solicitud de referencias*
-
-```text
-## Cita de autores
-Para los audios recite el poema 20 de pablo neruda de Veinte poemas de amor y una canción desesperada (1924)  y la cancion she's electric de oasis, interpretada en pinao por mi, citame esas dos cosas asi lo pego.
-```
 
 
 ---
