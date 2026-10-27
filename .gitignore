@@ -25,6 +25,7 @@ datos/
 *.egg-info/
 .installed.cfg
 *.egg
+*.pptx
 MANIFEST
 
 # PyInstaller
