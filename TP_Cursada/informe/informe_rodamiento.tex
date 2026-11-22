@@ -6,8 +6,8 @@
 %  TP_diagnostico_rodamiento_v2.ipynb). Para compilar online, subir este .tex
 %  junto con la carpeta figs/. Si falta una imagen, en su lugar aparece un
 %  recuadro con el nombre del archivo, y el documento compila igual.
-%  fig09c.png y fig26c.png son versiones de una columna (letra mas grande) de las
-%  Figuras 9 y 26 del notebook, generadas con los mismos datos.
+%  fig09c.png, fig21c.png y fig27c.png son versiones de una columna (letra mas
+%  grande) de las Figuras 9, 21 y 27 del notebook, generadas con los mismos datos.
 % =====================================================================
 \documentclass[conference,a4paper]{IEEEtran}
 
@@ -81,7 +81,7 @@ Instituto Tecnológico de Buenos Aires}}
 \maketitle
 
 \begin{abstract}
-Analizamos registros de aceleración de dos ventiladores industriales con rodamientos SKF 22230 CCK/W33, adquiridos a 24~kHz por el sistema de monitoreo de una planta, para determinar si alguno de los puntos medidos tiene una falla localizada y en qué elemento del rodamiento. El nivel global de vibración señala el canal equivocado: el canal sano del ventilador sospechoso vibra el doble que el fallado. La kurtosis, en cambio, separa los canales, y el análisis de envolvente sobre la banda elegida con el kurtograma rápido muestra una serie armónica en 173.2~Hz $=10.4\,f_r$ con bandas laterales a $\pm f_r$, 20.6~dB sobre el fondo local y ausente en los canales de referencia. La serie coincide con la frecuencia de paso por la pista interna (BPFI) del fabricante dentro de un 4\,\%. Para llevar el diagnóstico a un prototipo de monitoreo definimos indicadores por ventana de 1~s y evaluamos la elección del umbral con curvas ROC y DET y validación dejando un canal afuera. Además estudiamos el cepstrum de la envolvente: medido como prominencia sobre su fondo separa peor que la relación pico/fondo espectral, pero el liftrado del rahmónico en $T_d=5.77$~ms produce el mejor indicador del trabajo (AUC de 1.000 e índice de Fisher de 11.9, contra 5.25 de la relación pico/fondo). Con él proponemos un segundo marco de decisión, que da el mismo veredicto que el original con más margen y tolera mejor el deslizamiento de los rodillos.
+Analizamos registros de aceleración de dos ventiladores industriales con rodamientos SKF 22230 CCK/W33, adquiridos a 24~kHz por el sistema de monitoreo de una planta, para determinar si alguno de los puntos medidos tiene una falla localizada y en qué elemento del rodamiento. El nivel global de vibración señala el canal equivocado: el canal sano del ventilador sospechoso vibra el doble que el fallado. La kurtosis, en cambio, separa los canales, y el análisis de envolvente sobre la banda elegida con el kurtograma rápido muestra una serie armónica en 173.2~Hz $=10.4\,f_r$ con bandas laterales a $\pm f_r$, 20.6~dB sobre el fondo local y ausente en los canales de referencia. La serie coincide con la frecuencia de paso por la pista interna (BPFI) del fabricante dentro de un 4\,\%. Para llevar el diagnóstico a un prototipo de monitoreo definimos indicadores por ventana de 1~s y evaluamos la elección del umbral con curvas ROC y DET y validación dejando un canal afuera. Además estudiamos el cepstrum de la envolvente: medido como prominencia sobre su fondo separa peor que la relación pico/fondo espectral, pero el liftrado del rahmónico en $T_d=5.77$~ms produce el mejor indicador del trabajo (AUC de 1.000 e índice de Fisher de 11.9, contra 5.25 de la relación pico/fondo). Con él proponemos un segundo marco de decisión, que da el mismo veredicto que el original con más margen y tolera mejor el deslizamiento de los rodillos. Por último, el cepstrum hasta 400~ms muestra que la periodicidad más fuerte está en las quefrencias donde se alinean los impactos y la vuelta del eje; con ventanas de 2 a 4~s, un lifter en esas quefrencias separa todavía mejor.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -190,7 +190,7 @@ Todo el procesamiento se implementó en Python (NumPy, SciPy, PyWavelets) en un 
 \item Kurtograma rápido de 7 niveles, con guardas que descartan las bandas por debajo de 500~Hz (órdenes del eje), el borde de Nyquist y las bandas sin energía útil sobre el piso de ruido del sensor.
 \item Análisis de envolvente: filtro Butterworth de orden 6 aplicado en ida y vuelta, Hilbert y PSD de Welch con $L=2^{16}$. Para comparar, los cuatro canales se demodulan además en la misma banda, la del canal bajo estudio (control negativo).
 \item Identificación empírica: pico dominante entre $2f_r$ y $15f_r$, serie armónica y bandas laterales a $\pm f_r$, y recién después comparación con las frecuencias del fabricante.
-\item Cepstrum de la envolvente con el logaritmo tomado hasta 1500~Hz, y liftrado del rahmónico en $T_d$.
+\item Cepstrum de la envolvente con el logaritmo tomado hasta 1500~Hz, liftrado del rahmónico en $T_d$ y lifters de quefrencia larga (hasta 400~ms) con ventanas de 1, 2 y 4~s.
 \item STFT y CWT de Morlet sobre 120~ms de señal.
 \item Indicadores por ventana de 1~s con parámetros comunes a todos los canales: $\Kb$ (kurtosis de la señal filtrada), $\Rb$ (relación pico/fondo de la envolvente en $\fbpfi$ y dos armónicos, con el fondo dado por la mediana local), $\Cb$ (prominencia del rahmónico en desvíos robustos) y $\Rl$ (relación pico/fondo del espectro liftrado). El umbral es $\mu_{\mathrm{ref}}+k\,\sigma_{\mathrm{ref}}$ con $k=3$, calculado sobre los tres canales sanos.
 \item Evaluación con curvas ROC y DET (60 ventanas con falla contra 180 sanas), barrido de $k$ y validación dejando un canal de referencia afuera.
@@ -272,14 +272,14 @@ La CWT muestra cada impacto como una estructura vertical, concentrada en el tiem
 
 \begin{figure}[!t]
 \centering
-\figura{fig21.png}{\columnwidth}
+\figura{fig22.png}{\columnwidth}
 \caption{120~ms de M2-C1: señal filtrada y su envolvente (arriba), STFT (medio) y CWT de Morlet compleja (abajo). Las líneas punteadas son múltiplos de $T_d=5.77$~ms.}
 \label{fig:tf}
 \end{figure}
 
 \begin{figure*}[!t]
 \centering
-\figura{fig25.png}{0.92\textwidth}
+\figura{fig26.png}{0.92\textwidth}
 \caption{Curvas ROC (izquierda) y DET (derecha) de los siete puntajes, incluidas las reglas conjuntas de las opciones A y B. El círculo marca el umbral $\mu_{\mathrm{ref}}+3\sigma_{\mathrm{ref}}$. En la DET, la franja gris corresponde a errores de 0\,\%, que no tienen lugar en escala probit.}
 \label{fig:roc}
 \end{figure*}
@@ -296,9 +296,40 @@ El liftrado cambia el resultado (Fig.~\ref{fig:lift}). Al conservar solo el rahm
 \label{fig:lift}
 \end{figure}
 
+\subsection{Quefrencias largas}
+Las bandas laterales a $\pm f_r$ son otra periodicidad del espectro de envolvente, con quefrencia $1/f_r=60$~ms. Extendimos el cepstrum hasta 400~ms (Fig.~\ref{fig:qlargas}) y probamos lifters pasa-banda alrededor de 50 y 60~ms con anchos de $\pm5$ a $\pm30$\,\%, y un pasa-alto con corte en 30~ms. Ni 50~ms ni $1/f_r$ muestran algo distintivo (1.2 desvíos en M2-C1, hasta 2.8 en los sanos). Los picos de M2-C1 están en 121, 179 y 300~ms, con 21.2, 11.8 y 31.2 desvíos contra menos de 3 en las referencias. Son las quefrencias donde los dos relojes de la falla coinciden: $n$ impactos duran casi lo mismo que $m$ vueltas del eje, $n\,T_d\approx m/f_r$, con $(n,m)=(21,2)$, $(31,3)$ y $(52,5)$. Como $\fbpfi/f_r=10.396$ no es entero, una sola vuelta no alinea las dos familias, pero cinco vueltas sí (52 impactos, 0.13~ms de diferencia).
+
+\begin{figure}[!t]
+\centering
+\figura{fig21c.png}{\columnwidth}
+\caption{Cepstrum de la envolvente hasta 400~ms, en desvíos robustos y con la misma escala. Punteado: múltiplos de $1/f_r$; rayas: 50~ms. Solo M2-C1 tiene picos, en las quefrencias donde $n\,T_d\approx m/f_r$.}
+\label{fig:qlargas}
+\end{figure}
+
+\begin{table}[!t]
+\centering
+\caption{Separación por ventana con lifters de quefrencia larga (índice de Fisher $J$)}
+\label{tab:qlargas}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Lifter & 1~s & 2~s & 4~s \\
+\midrule
+$\Rl$ ($T_d\pm10$\,\%)                  & 11.9 & 13.5 & 26.7 \\
+Pasa-banda 50~ms $\pm20$\,\%            &  0.3 &  0.8 &  0.4 \\
+Pasa-banda $1/f_r$ $\pm10$\,\%           &  0.3 &  1.4 &  0.8 \\
+Pasa-banda $1/f_r$ $\pm30$\,\%           &  0.5 &  1.2 &  0.6 \\
+Pasa-alto 30~ms                         &  2.5 &  4.0 &  7.9 \\
+Coincidencias 121/179/300~ms            &  6.2 & 20.2 & 45.0 \\
+\bottomrule
+\multicolumn{4}{@{}l}{\footnotesize Ventanas por canal: 60, 30 y 15.}
+\end{tabular}
+\end{table}
+
+Ventana a ventana (Tabla~\ref{tab:qlargas}), los pasa-banda en 50~ms y $1/f_r$ no separan con ningún ancho (AUC entre 0.69 y 0.89), y el pasa-alto mejora con ventanas largas pero no llega a separar (AUC de 0.999 con 4~s). El lifter en las tres quefrencias de coincidencia ($\pm1$~ms) necesita resolución en frecuencia, y por lo tanto ventanas largas: con 1~s queda por debajo de $\Rl$, pero desde 2~s separa sin errores y con más margen que $\Rl$ en la misma duración ($J$ de 20.2 contra 13.5 con 2~s, y de 45.0 contra 26.7 con 4~s). Las quefrencias se eligieron mirando este cepstrum, aunque se predicen solo con $\fbpfi/f_r$, y con 4~s hay solo 15 ventanas por canal; por eso este indicador no entra en los marcos de decisión, que trabajan con ventanas de 1~s.
+
 \begin{figure*}[!t]
 \centering
-\figura{fig27.png}{0.85\textwidth}
+\figura{fig28.png}{0.85\textwidth}
 \caption{Espacios de decisión de la opción A ($\Kb$ y $\Rb$, izquierda) y de la opción B ($\Kb$ y $\Rl$, derecha), con las mismas ventanas de 1~s. Las líneas a trazos son los umbrales $\mu_{\mathrm{ref}}+3\sigma_{\mathrm{ref}}$.}
 \label{fig:ab}
 \end{figure*}
@@ -331,7 +362,7 @@ El barrido de $k$ (Fig.~\ref{fig:k}) muestra que $k=3$ es conservador para los i
 
 \begin{figure}[!t]
 \centering
-\figura{fig26c.png}{\columnwidth}
+\figura{fig27c.png}{\columnwidth}
 \caption{Falsas alarmas (arriba) y fallas no detectadas (abajo) en función de $k$ en el umbral $\mu_{\mathrm{ref}}+k\,\sigma_{\mathrm{ref}}$. La línea a trazos es $k=3$.}
 \label{fig:k}
 \end{figure}
@@ -348,14 +379,14 @@ La opción B tiene además una ventaja práctica. Un monitor automático no cono
 
 Tres resultados valen más allá de este caso. Primero, la forma de la señal detecta la falla antes que su energía: el RMS señaló el canal equivocado y la kurtosis no. Segundo, un indicador espectral de falla tiene que estar normalizado por el fondo local; la energía absoluta en $\fbpfi$ comete el mismo error que el RMS, un nivel más adentro del procesamiento. Tercero, la tolerancia con que se busca la frecuencia de falla tiene que absorber el deslizamiento. Un monitor configurado con el BPFI teórico y $\pm3$\,\% ($\pm5.41$~Hz) no habría encontrado el pico real, que está 7.17~Hz más abajo, y habría declarado sano un rodamiento fallado; hace falta al menos $\pm5$\,\%. El liftrado resuelve esto de otra forma, porque su margen en quefrencia absorbe el corrimiento: configurado con el valor teórico, $\Rl$ mantiene su desempeño y $\Rb$ pierde detección.
 
-Sobre el cepstrum, la comparación entre $\Cb$ y $\Rl$ resume lo aprendido. Los dos miran el mismo rahmónico, pero $\Cb$ toma un solo bin y lo divide por la dispersión de las quefrencias vecinas, que es ruido y cambia de ventana a ventana. El liftrado suma todo lo que cae en el margen aunque el pico esté corrido o repartido, y no lo normaliza por nada ruidoso. La información está en el rahmónico, pero hay que aislarla filtrando en quefrencia.
+Sobre el cepstrum, la comparación entre $\Cb$ y $\Rl$ resume lo aprendido. Los dos miran el mismo rahmónico, pero $\Cb$ toma un solo bin y lo divide por la dispersión de las quefrencias vecinas, que es ruido y cambia de ventana a ventana. El liftrado suma todo lo que cae en el margen aunque el pico esté corrido o repartido, y no lo normaliza por nada ruidoso. La información está en el rahmónico, pero hay que aislarla filtrando en quefrencia. Y no solo en $T_d$: las quefrencias largas donde se alinean los impactos y la vuelta del eje concentran todavía más información, a cambio de necesitar ventanas de varios segundos.
 
 El trabajo tiene limitaciones claras. Hay una sola medición por estado y un único rodamiento fallado, así que las curvas ROC y DET describen cuán bien se separan las ventanas de esta medición y no el desempeño del método en otros equipos. El margen del lifter se eligió mirando estos datos, por lo que $J=11.9$ es optimista, aunque cualquier margen probado con un rahmónico supera a $\Rb$. Tanto $\Rb$ como $\Rl$ están sintonizados en la frecuencia medida: sirven para vigilar una falla identificada, no para descubrir una nueva. Los canales sanos son otro punto del mismo equipo y dos de otro ventilador, no el mismo punto en estado sano. $Z=19$ se dedujo del reporte del fabricante, sin la geometría interna real. Y no estimamos severidad ni vida remanente, que requieren seguimiento en el tiempo.
 
 % =====================================================================
 \section{Conclusiones}
 
-El canal M2-C1, lado acople del ventilador~2, tiene una falla localizada en la pista interna del rodamiento. La evidencia es una kurtosis persistentemente alta, un pico de envolvente en 173.2~Hz $=10.4\,f_r$ (múltiplo no entero), cuatro armónicos, bandas laterales a $\pm f_r$, coincidencia con el BPFI del fabricante dentro del 4\,\% y el mismo pico en la envolvente del software de la planta. La kurtosis espectral convirtió la elección de la banda de demodulación en una optimización con un criterio explícito, siempre que se usen guardas. Las curvas ROC y DET mostraron que la detección no depende de un umbral afinado, y el liftrado del cepstrum produjo un indicador que, con 1~s de señal, separa sin errores el canal con falla de los sanos en estas mediciones. Con él armamos un segundo marco de decisión (opción B) que coincide con el original en todos los veredictos, con más margen y más tolerancia al deslizamiento. El paso siguiente natural es repetir la medición periódicamente y seguir la evolución de $\Rb$ y $\Rl$ para estimar la tendencia del defecto.
+El canal M2-C1, lado acople del ventilador~2, tiene una falla localizada en la pista interna del rodamiento. La evidencia es una kurtosis persistentemente alta, un pico de envolvente en 173.2~Hz $=10.4\,f_r$ (múltiplo no entero), cuatro armónicos, bandas laterales a $\pm f_r$, coincidencia con el BPFI del fabricante dentro del 4\,\% y el mismo pico en la envolvente del software de la planta. La kurtosis espectral convirtió la elección de la banda de demodulación en una optimización con un criterio explícito, siempre que se usen guardas. Las curvas ROC y DET mostraron que la detección no depende de un umbral afinado, y el liftrado del cepstrum produjo un indicador que, con 1~s de señal, separa sin errores el canal con falla de los sanos en estas mediciones. Con él armamos un segundo marco de decisión (opción B) que coincide con el original en todos los veredictos, con más margen y más tolerancia al deslizamiento. Las quefrencias largas (121, 179 y 300~ms) separan todavía mejor con ventanas de 2 a 4~s. El paso siguiente natural es repetir la medición periódicamente, seguir la evolución de $\Rb$ y $\Rl$ para estimar la tendencia del defecto, y evaluar un marco de decisión con ventanas largas basado en esas quefrencias.
 
 % =====================================================================
 \begin{thebibliography}{99}
