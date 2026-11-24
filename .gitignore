@@ -25,6 +25,12 @@ datos/
 *.egg-info/
 .installed.cfg
 *.egg
+*.aux
+*.fls
+*.fdb_latexmk
+*.out
+*.gz
+
 MANIFEST
 
 # PyInstaller
