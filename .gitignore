@@ -223,3 +223,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Dataset LOCATA (6,2 GB): se lee desde convertir.py, no se versiona
+TP3/dev.zip
